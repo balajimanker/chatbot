@@ -1,5 +1,4 @@
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
-import { AppProvider } from "./contexts/AppContext";
 import Login from "./pages/Login";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
@@ -16,7 +15,7 @@ const PrivateRoute = () => {
   )
 }
 const App = () => (
-  <AppProvider>
+  <>
     <Toaster />
     <Routes>
       <Route path="/" element={<Login />} />
@@ -26,7 +25,7 @@ const App = () => (
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
-  </AppProvider>
+  </>
 );
 
 export default App;

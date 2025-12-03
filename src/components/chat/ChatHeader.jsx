@@ -7,13 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../store/auth_store/auth.reducer';
 import { setLanguage } from '../../store/chat_store/chat.reducer';
 import Logo from '@/assets/stuertz-logo.svg';
+import { translations } from '../../lib/mockData';
 
 const ChatHeader = ({ onToggleSidebar }) => {
     const navigate = useNavigate();
     const language = useSelector((state) => state?.chat?.language);
 
     const t = translations[language];
-    const searchResults = useSelector((state) => state?.chat?.searchResults)
 
     const dispatch = useDispatch()
     const handleLogout = () => {

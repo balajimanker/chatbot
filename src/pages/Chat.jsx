@@ -7,6 +7,7 @@ import { Sidebar } from 'primereact/sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getConversationById } from '../store/chat_store/chat.action';
+import { setCurrentConversation } from '../store/chat_store/chat.reducer';
 
 const Chat = () => {
     const dispatch = useDispatch();
@@ -23,6 +24,9 @@ const Chat = () => {
     useEffect(() => {
         if (chatId && chatId !== currentConversation?.id) {
             dispatch(getConversationById({ id: chatId }));
+        }
+        if (!chatId) {
+            dispatch(setCurrentConversation(null));
         }
     }, [chatId]);
 

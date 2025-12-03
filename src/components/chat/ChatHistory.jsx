@@ -5,6 +5,7 @@ import { MessageSquare, Plus } from 'lucide-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentConversation } from '../../store/chat_store/chat.reducer';
 import { useNavigate } from 'react-router-dom';
+import { translations } from '../../lib/mockData';
 
 const ChatHistory = ({ onClose }) => {
     const dispatch = useDispatch();

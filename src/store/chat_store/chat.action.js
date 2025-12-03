@@ -69,7 +69,7 @@ export const getConversationById = createAsyncThunk('chat/getConvById',
                 setTimeout(() => {
                     resolve({
                         ok: true,
-                        json: () => Promise.resolve(findConvo || {})
+                        json: () => Promise.resolve(findConvo || null)
                     });
                 }, 500);
             });

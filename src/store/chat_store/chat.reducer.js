@@ -5,7 +5,7 @@ const initialState = {
     chatInput: "",
     searchResults: [],
     conversations: [],
-    currentConversation: {},
+    currentConversation: null,
     loading: false,
     language: "en",
     error: null,
@@ -67,6 +67,7 @@ const chatSlice = createSlice({
                 state.loading = true;
             })
             .addCase(sendMessageAPI.fulfilled, (state, action) => {
+               
                 state.loading = false;
 
                 const { chatId, bot } = action.payload;
