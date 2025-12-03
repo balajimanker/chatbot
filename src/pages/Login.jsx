@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { translations } from '@/lib/mockData';
-import { MessageSquare, Globe, Loader2, Camera } from 'lucide-react';
+import {  Globe, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';

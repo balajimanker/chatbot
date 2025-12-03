@@ -1,4 +1,3 @@
-import { translations } from '@/lib/mockData';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { LogOut, Globe, Menu, Search } from 'lucide-react';
@@ -9,15 +8,11 @@ import { logout } from '../../store/auth_store/auth.reducer';
 import { setLanguage } from '../../store/chat_store/chat.reducer';
 import Logo from '@/assets/stuertz-logo.svg';
 
-
 const ChatHeader = ({ onToggleSidebar }) => {
-
     const navigate = useNavigate();
-    //const { language, setLanguage, searchQuery, setSearchQuery } = useApp();.
     const language = useSelector((state) => state?.chat?.language);
 
     const t = translations[language];
-
     const searchResults = useSelector((state) => state?.chat?.searchResults)
 
     const dispatch = useDispatch()
@@ -38,7 +33,9 @@ const ChatHeader = ({ onToggleSidebar }) => {
                         className="py-2 px-3 rounded-md font-medium transition-colors hover:bg-blue-50 hover:text-[#066ff9] lg:hidden!"
                         icon={<Menu className="h-4 w-4" />}
                     />
-                    <h1 className="text-xl font-bold text-[#1d2530]">ChatBot</h1>
+                    <div className="p-2 bg-black rounded">
+                        <img src={Logo} alt="Logo" className="h-6" />
+                    </div>
                 </div>
 
                 <div className="flex-1 max-w-md hidden md:block">
@@ -63,9 +60,6 @@ const ChatHeader = ({ onToggleSidebar }) => {
                         icon={<Globe className="h-4 w-4" />}
                         className="py-2 px-3 rounded-md font-medium transition-colors hover:bg-blue-50 hover:text-[#066ff9] lg:hidden"
                     />
-                    <div className="p-2 bg-black rounded">
-                        <img src={Logo} alt="Logo" className="h-6" />
-                    </div>
                     <Button
                         text
                         rounded

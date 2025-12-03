@@ -1,4 +1,3 @@
-import { translations } from '@/lib/mockData';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { ScrollPanel } from 'primereact/scrollpanel';
@@ -12,7 +11,6 @@ const ChatHistory = ({ onClose }) => {
     const navigate = useNavigate();
     const language = useSelector((state) => state?.chat?.language);
     const conversations = useSelector((state) => state?.chat?.conversations)
-
     const currentConversation = useSelector((state) => state?.chat?.currentConversation)
     const t = translations[language];
     const handleSelectConversation = (cId) => {
@@ -38,7 +36,7 @@ const ChatHistory = ({ onClose }) => {
             </div>
             <ScrollPanel style={{ width: '100%', height: '100%' }} className="flex-1 max-h-[90vh] md:max-h-[80vh] overflow-y-auto">
                 <div className="p-4 space-y-2">
-                    {/* {conversations?.map((conversation) => (
+                    {conversations?.map((conversation) => (
                         <Card
                             key={conversation.id}
                             className={`rounded-lg border border-[#d7dfea] bg-card text-card-foreground shadow-sm p-3 cursor-pointer transition-colors hover:bg-[#ecf4fe] ${currentConversation?.id === conversation.id
@@ -59,7 +57,7 @@ const ChatHistory = ({ onClose }) => {
                                 </div>
                             </div>
                         </Card>
-                    ))} */}
+                    ))}
                 </div>
             </ScrollPanel>
         </div>
