@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/auth_store/auth.action';
 import { setLanguage } from '../store/chat_store/chat.reducer';
 import Logo from '@/assets/stuertz-logo.svg';
+import { BsFillEyeFill } from "react-icons/bs"
+import { BsFillEyeSlashFill } from "react-icons/bs"
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const t = translations[language];
 
@@ -88,12 +91,18 @@ const Login = () => {
                         <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" htmlFor="password">{t.password}</label>
                         <InputText
                             id="password"
-                            type="password"
+                            // type="password"
+                            type={showPassword ? "text" : "password"}   
                             placeholder="********"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="mt-2! w-full border border-[#d7dfea] bg-[#f8fafc] px-3 py-2 text-base placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm rounded-lg"
                         />
+                        {showPassword ? (
+                            <BsFillEyeFill onClick={() => setShowPassword(false)} className="relative bottom-7 left-86 cursor-pointer text-gray-600" />
+                        ) : (
+                            <BsFillEyeSlashFill onClick={() => setShowPassword(true)} className="relative bottom-7 left-86 cursor-pointer text-gray-600" />
+                        )}
                     </div>
                     <Button
                         disabled={loading}
